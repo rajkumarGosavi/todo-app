@@ -1,0 +1,1 @@
+1. Add ORM sqliteDB and store data
