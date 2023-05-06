@@ -81,7 +81,7 @@ fn test_get_todo() {
 	}
 
 	mut ts := TodosStore([]todo.Todo{})
-
+	assert ts.len == 0
 	assert ts.get_todo(5) == none
 
 	ts.add_todo(td)
@@ -98,6 +98,12 @@ fn test_update_todo() {
 	}
 
 	mut ts := TodosStore([]todo.Todo{})
+	ts.add_todo(td)
 
-	ts.update_todo(td)
+	mut td2 := ts[0]
+	td2.title = 'updated title'
+
+	ts.update_todo(td2)
+
+	assert ts[0].title == td2.title
 }
